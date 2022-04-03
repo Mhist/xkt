@@ -1,0 +1,19 @@
+{
+  "name": "xkt",
+  "version": "1.0.0",
+  "description": "2022.04.01-restart",
+  "main": "main.js",
+  "repository": "https://github.com/Mhist/xkt",
+  "author": "xkt",
+  "license": "MIT",
+  "private":"true",
+  "devDependencies": {
+    "vitepress": "^0.22.3"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  }
+
+}
