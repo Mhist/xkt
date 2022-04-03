@@ -1,5 +1,5 @@
 # 学习java基础
-
+[韩顺平](https://www.bilibili.com/video/BV1fh411y7R8?p=42)
 ## 转义字符
 | Tables        | Are           | 
 | ------------- |:-------------:| 
@@ -73,3 +73,12 @@ javadoc -d 文件夹名 --xx -yy Demo3.java
 ## 数据类型
 <img src="/public/data-type.png" alt="数据类型" />
 <img src="/public/int-type.png" alt="整型数据类型" />
+
+### 整型
+
+Java的整型常量(具体值)默认为int型，声明long型常量需后加‘l’或‘L’
+
+
+## 数组
+数组可以存放同一类型的数据，数组也是一种数据类型，被称为引用类型。
+
