@@ -12,4 +12,4 @@
 ## 项目学习记录
 
 [vue3小兔鲜项目](/vue3/小兔鲜项目)
-[react2022](/react/rteact)
+[react2022](/react/react)
