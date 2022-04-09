@@ -1,0 +1,1 @@
+import{_ as e,c as r,o as a,a as t}from"./app.f5576b16.js";const g='{"title":"\u521D\u8BC6react","description":"","frontmatter":{},"headers":[],"relativePath":"react/react.md"}',o={},c=t("",3),n=[c];function i(s,_,l,p,d,h){return a(),r("div",null,n)}var m=e(o,[["render",i]]);export{g as __pageData,m as default};
