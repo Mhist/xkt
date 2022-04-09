@@ -1,7 +1,7 @@
-const { withBase } = require("vitepress");
+const { withBase } = require("vitepress")
 
 module.exports = {
-    title: 'Hello VitePress',
-    description: 'Just playing around.',
-    base: '/',
-  }
+  title: '亚东 VitePress',
+  description: '前端知识体系',
+  base: '/',
+}
