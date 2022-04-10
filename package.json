@@ -6,7 +6,7 @@
   "repository": "https://github.com/Mhist/xkt",
   "author": "xkt",
   "license": "MIT",
-  "private":"true",
+  "private": "true",
   "devDependencies": {
     "vitepress": "^0.22.3"
   },
@@ -14,6 +14,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.6"
   }
-
 }

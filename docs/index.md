@@ -1,15 +1,15 @@
-# 首页
-
-## 博客地址
-
-- [yadong 的学习路径](https://yadong.vercel.app/)
-- [yadong 的 vercel](https://vercel.com/mhist/xkt)
-
-## 最近在学
-
-[哔哩哔哩---韩顺平 零基础 java 学习](https://www.bilibili.com/video/BV1fh411y7R8?p=161&spm_id_from=pageDriver)
-
-## 项目学习记录
-
-- [vue3 小兔鲜项目](/vue3/小兔鲜项目)
-- [react2022](/react/react)
+---
+home: true
+heroText: 知识体系
+tagline: 记录知识、积累成长
+actionText: 快速开始
+actionLink: https://www.bilibili.com/video/BV1GJ411x7h7?spm_id_from=333.999.0.0
+features:
+  - title: 成长性
+    details: 干了三年没啥进步
+  - title: 进阶性
+    details: 学了很多啥用没有
+  - title: 可持续性
+    details: 过了一年全都忘了
+footer: MIT Licensed | Copyright © 2022-present mhist jiang
+---
