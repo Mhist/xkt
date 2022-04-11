@@ -35,5 +35,3 @@
 
 - [现代 JavaScript 教程](https://zh.javascript.info/)
 - [阮一峰 -ES6 入门教程](https://es6.ruanyifeng.com/)
-- [菜鸟教程-CSS](https://www.runoob.com/css/css-tutorial.html)
-- [W3Cschool-CSS](https://www.w3school.com.cn/css/index.asp)

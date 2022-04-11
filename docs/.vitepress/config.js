@@ -11,6 +11,7 @@ module.exports = {
   ],
   themeConfig: {
     // 展示搜索框
+    
     themeConfig: {
       algolia: {
         apiKey: 'your_api_key',
@@ -20,7 +21,7 @@ module.exports = {
     nav: nav,
     // 侧边栏
     sidebar: {
-      '/': sidebar,
+      // '/': sidebar,
     }
   },
 }
