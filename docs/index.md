@@ -21,8 +21,4 @@ features:
 footer: MIT Licensed | Copyright © 2022-present mhist jiang
 ---
 
-<video width="320" height="240"  controls>
-    <source src="https://www.bilibili.com/video/BV1GJ411x7h7?spm_id_from=333.999.0.0" type="video/mp4">
-  
-    您的浏览器不支持 video 标签。
-</video>
+<bilibili-video src="https://www.bilibili.com/video/BV1GJ411x7h7?spm_id_from=333.999.0.0" frameborder="0"></bilibili-video>

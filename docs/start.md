@@ -36,4 +36,7 @@
 - [现代 JavaScript 教程](https://zh.javascript.info/)
 - [阮一峰 -ES6 入门教程](https://es6.ruanyifeng.com/)
 
+### 面试指南
 
+- [前端面试指南阅读全文解锁码：10000499012021110101866442060553](https://interview2.poetries.top/docs/base.html)
+- [阮一峰 -ES6 入门教程](https://es6.ruanyifeng.com/)
