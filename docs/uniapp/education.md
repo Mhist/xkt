@@ -158,3 +158,35 @@
 ```
 text-decoration: line-through;
 ```
+
+## 2.登录功能
+
+### 2.1 绑定手机号
+
+```
+// setTimeout(()=>{
+						//    uni.redirectTo({
+						//    	url:'../tabbar/mine/mine'
+						//    })
+						// },1500)
+						setTimeout(()=>{
+							uni.switchTab({
+								url:'../tabbar/mine/mine'
+							})
+						},1500)
+```
+
+对于跳转到 tabbar 下的页面，跳转需要 SwitchTab
+
+### 2.2 过滤器过滤 html 标签
+
+```
+filters:{
+			formatType(k) {
+				return opt[k];
+			},
+			formatDesc(k){
+				return k.replace(/<[^>]+>/g, '');
+			}
+		}
+```
