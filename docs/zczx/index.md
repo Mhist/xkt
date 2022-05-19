@@ -39,3 +39,75 @@ indexHeadLogo:  this.$mAssetsPath.indexHeadLogo,
 ```
 
 通过动态绑定在页面中引用
+
+### 1.1.3 路由跳转
+
+```
+this.$mRouter.push({route:this.$mRoutesConfig.main,query:{a:1}})
+```
+
+### 1.1.4 两行三列电表
+
+```
+<view class="lessee-bottom flex-row">
+					<view class="flex-col flex-1 align-center justify-between">
+						<view class="item-detail">
+							{{lesseeInfo.monthBillDate}}
+						</view>
+						<view class="item">
+							每月账单日
+						</view>
+					</view>
+					<view class="flex-col flex-1 align-center justify-between">
+						<view class="item-detail">
+							{{lesseeInfo.ammeterStart}}
+						</view>
+						<view class="item">
+							电表起始码
+						</view>
+					</view>
+					<view class="flex-col flex-1 align-center justify-between">
+						<view class="item-detail">
+							{{lesseeInfo.waterStart}}
+						</view>
+						<view class="item">
+							水表起始码
+						</view>
+					</view>
+				</view>
+```
+
+```
+// 租户信息板块
+				lesseeInfo:{
+					avatar:this.$mAssetsPath.lesseeInfoAvatar,
+					name: '当代MOMA·历峰',
+					date:'2022-01-01至2023-01-10',
+					monthBillDate:"30646",
+					ammeterStart:'59088.00',
+					waterStart:'59088.00'
+
+				}
+```
+
+.lessee-bottom{
+margin: 78rpx 30rpx 0 30rpx;
+width: 642rpx;
+height: 92rpx;
+}
+
+.lessee-item {
+font-size: 26rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #6A4125;
+line-height: 36rpx;
+}
+
+.lessee-item-detail {
+font-size: 40rpx;
+font-family: DINAlternate-Bold, DINAlternate;
+font-weight: bold;
+color: #6A4125;
+line-height: 48rpx;
+}
