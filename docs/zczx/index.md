@@ -90,6 +90,7 @@ this.$mRouter.push({route:this.$mRoutesConfig.main,query:{a:1}})
 				}
 ```
 
+```
 .lessee-bottom{
 margin: 78rpx 30rpx 0 30rpx;
 width: 642rpx;
@@ -111,3 +112,4 @@ font-weight: bold;
 color: #6A4125;
 line-height: 48rpx;
 }
+```
