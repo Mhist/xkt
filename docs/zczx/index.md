@@ -113,3 +113,35 @@ color: #6A4125;
 line-height: 48rpx;
 }
 ```
+
+### 红色 fixed 按钮
+
+```
+<!-- 提交信息按钮 -->
+		<view class="payBtn">
+			<view class="justify-center align-center confirmPay">提交信息</view>
+		</view>
+```
+
+```
+.payBtn {
+		width: 702rpx;
+		height: 84rpx;
+		background: #F04035;
+		border-radius: 4rpx;
+		margin-left: 24rpx;
+		margin-right: 24rpx;
+		position: fixed;
+		bottom: 90rpx;
+
+		.confirmPay {
+			margin: 18rpx 282rpx 18rpx 284rpx;
+			font-size: 34rpx;
+			font-family: PingFangSC-Medium, PingFang SC;
+			font-weight: 500;
+			color: #FFFFFF;
+			line-height: 48rpx;
+			white-space: nowrap;
+		}
+	}
+```
