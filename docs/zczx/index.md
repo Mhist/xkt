@@ -145,3 +145,61 @@ line-height: 48rpx;
 		}
 	}
 ```
+
+```
+<!-- 封装组件 -->
+<template>
+	<view>
+		<!-- 提交信息按钮 -->
+		<view class="fixedBottomBtn" @click="toEvents()">
+			<view class="justify-center align-center fixedBottomBtnWord">{{title}}</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		name:"fixed-bottom-button",
+		data() {
+			return {
+				
+			};
+		},
+		props{
+			title:{
+				type:String,
+				default:''
+			}
+		},
+		methods:{
+			toEvents(){
+				this.$emit('toEvents')
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+.fixedBottomBtn{
+		width: 702rpx;
+		height: 84rpx;
+		background: #F04035;
+		border-radius: 4rpx;
+		margin-left: 24rpx;
+		margin-right: 24rpx;
+		position: fixed;
+		bottom: 90rpx;
+
+		.fixedBottomBtnWord {
+			margin: 18rpx 282rpx 18rpx 284rpx;
+			font-size: 34rpx;
+			font-family: PingFangSC-Medium, PingFang SC;
+			font-weight: 500;
+			color: #FFFFFF;
+			line-height: 48rpx;
+			white-space: nowrap;
+		}
+	}
+</style>
+
+```
