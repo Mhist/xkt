@@ -203,3 +203,14 @@ line-height: 48rpx;
 </style>
 
 ```
+## 通知公告部分设置行内样式无效的处理办法
+通过在外层套 view组件设置行内样式
+```
+<view class="flex-row justify-between align-center">
+							<view class="" style="background-color: #378CFF;border-radius: 50%;">
+								<u-icon name="chat" color="#fff"  size="28"></u-icon>
+							</view>
+							<text class="title">通知公告</text>
+						</view>
+
+```
