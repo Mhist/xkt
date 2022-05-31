@@ -162,7 +162,7 @@ line-height: 48rpx;
 		name:"fixed-bottom-button",
 		data() {
 			return {
-				
+
 			};
 		},
 		props{
@@ -203,8 +203,11 @@ line-height: 48rpx;
 </style>
 
 ```
+
 ## 通知公告部分设置行内样式无效的处理办法
-通过在外层套 view组件设置行内样式
+
+通过在外层套 view 组件设置行内样式
+
 ```
 <view class="flex-row justify-between align-center">
 							<view class="" style="background-color: #378CFF;border-radius: 50%;">
@@ -213,4 +216,22 @@ line-height: 48rpx;
 							<text class="title">通知公告</text>
 						</view>
 
+```
+
+## uniapp 页面传递 item
+
+原页面：
+
+```
+encodeURIComponent(JSON.stringify(item))
+```
+
+目标页面：
+
+```
+onLoad(options) {
+  if (options) {
+   var item = JSON.parse(decodeURIComponent(options.row))
+  }
+ },
 ```
