@@ -235,3 +235,17 @@ onLoad(options) {
   }
  },
 ```
+
+## 提交代码的前缀规范
+
+用于说明 commit 的类别
+feat：新功能(feature)
+fix: 修复 bug
+docs: 文档(documentation)
+style: 格式(不影响代码运行的变动)
+refactor: 重构(既不是新增功能，也不是修改 bug 的代码变动)
+chore： 构建过程或辅助工具的变动
+revert: 撤销，版本回退
+perf：性能优化
+test： 测试
+improvement: 改进
