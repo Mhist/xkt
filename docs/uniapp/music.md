@@ -6,3 +6,10 @@
 
 原因及解决方案：同级的需要添加定位属性
 参考链接：[小程序 z-index 层级问题 view 组件坑，z-index 失效](https://blog.csdn.net/qq_32858649/article/details/82735649)
+
+## 2.设置 margin： 0 auto；与 margin-top 的冲突问题
+
+![设置 margin： 0 auto；与 margin-top 的冲突问题](https://files.catbox.moe/5hcrdc.png)
+
+这种情况是需要设置宽度的。
+![设置宽度后](https://files.catbox.moe/6n6pbc.png)
