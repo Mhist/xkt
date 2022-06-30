@@ -30,3 +30,17 @@ function htmlDecodeByRegExp(str) {
 
 
 ```
+
+## 2.请求携带 token+时间戳序列号
+
+```
+try{
+	data.lgParam = JSON.parse(JSON.stringify(nativeInfo.lgParam));
+	data.lgParam.seq = Number(new Date()) + seqIndex++;
+  // 请求seq不能重复，避免毫秒级的重复，所以后面加了index++
+}catch(e){
+	console.log('从app获取session失败');
+}
+
+
+```
