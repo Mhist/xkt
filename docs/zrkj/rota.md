@@ -652,5 +652,22 @@ platformSupport.installConfig();
 
 ```
 
+### BaseView文件夹
+
+* baseApp.vue  组件依赖
+* baseRouter.vue 路由页baseRouter组件依赖
+* baseScroll.vue (app页面滚动title栏变色基础依赖)
+
+
+### 路由文件
+
+::: info
+vue项目优化之按需加载组件-使用webpack require.ensure与import
+:::
+
+![webpack require.ensure项目优化](https://files.catbox.moe/fhqaiw.png)
+
+
+
 
 
