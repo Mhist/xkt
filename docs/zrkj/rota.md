@@ -636,5 +636,21 @@ export default platformSupport;
 ```
 
 
+### 类方法的调用
+
+::: info
+rota/src/lib/setup.js文件
+:::
+
+```
+import platformSupport from "bankConfig/platformSupport";
+
+platformSupport.installSvg();
+platformSupport.installJsBridgeImpl();
+platformSupport.installNetImpl();
+platformSupport.installConfig();
+
+```
+
 
 
