@@ -222,7 +222,7 @@ rota
 │     ├─ pic_edu_stu@3x.png
 │     ├─ pic_idcard_front@3x.png
 │     └─ pic_idcard_reverse@3x.png
-├─ bankConfig
+├─ bankConfig                             
 │  ├─ apiUrlConfig.js
 │  ├─ commonConfig.js
 │  ├─ pageConfig.js
@@ -514,4 +514,127 @@ rota
 └─ tslint.json
 
 ```
+
+## 项目结构及流程图pdf
+
+* [lib库结构与使用](http://119.91.213.59:8888/down/Xd2K1uqnV8cP)
+
+* [前端项目结构流程图](http://119.91.213.59:8888/down/fK2LCM0rpP8n)
+
+## 核心流程
+
+### 平台支持类，兼容多平台
+
+::: info
+rota/bankConfig/platformSupport.ts文件
+:::
+
+
+```
+/*
+ * @Autor: miaoju
+ * @Description: 平台支持类, 主要是 浏览器Jsbridge、网络请求支持, 用于处理mPaaS、tmf等不同平台兼容支持
+ */
+
+const { BridgeAdapter, MPaaSJSBridgeImpl } = require("../src/lib/adapter");
+import WebJSBridgeImpl from "./WebJSBridgeImpl.js";
+const { NetAdapter, MPaaSNetImpl } = require("../src/lib/netAdapter");
+import { getBrowserType, BROWSER_TYPE } from "@sinosun/lib/lib/Utils/uaUtil";
+(window as any).DOMAIN_URL_KEY = `YQT_DOMAIN`;
+(window as any).PRODUCT_NAME = `bizmate`;
+// 当前所属环境 默认webview
+if (process.env.CURRENT_ENV === "weboa") {
+	(window as any).PRODUCT_NAME = `weboa`;
+}
+const browserType = getBrowserType();
+let baseUrl = "/bizmate/static";
+let baseStaticUrl = ``;
+// 当前所属环境 默认webview
+if (process.env.CURRENT_ENV === "weboa") {
+	baseUrl = "/weboa";
+	baseStaticUrl = `/bizmate/static/rota/pages/`;
+}
+// 设置静态资源 源路径
+(window as any).BASE_URL = baseUrl;
+(window as any).BASE_STATIC_URL = baseStaticUrl;
+class PlatformSupport {
+	constructor() {}
+
+	// 加载所有svg
+	installSvg() {
+		const requireAll = (context) => context.keys().map(context);
+		const req = (require as any).context("assets/img", true, /\.svg$/);
+		requireAll(req);
+	}
+
+	/**
+	 * 安装jsbridge平台支持
+	 */
+	installJsBridgeImpl() {
+		// 当前所属环境 默认webview
+		if (process.env.CURRENT_ENV === "weboa") {
+			BridgeAdapter.setJsBridgeImpl(new WebJSBridgeImpl());
+			return;
+		}
+		// 安装mPaaS 的jsbridge
+		if (browserType === BROWSER_TYPE.MPASS) {
+			BridgeAdapter.setJsBridgeImpl(new MPaaSJSBridgeImpl());
+		}
+		//纯web浏览器
+		if (browserType === BROWSER_TYPE.WEB) {
+			BridgeAdapter.setJsBridgeImpl(new WebJSBridgeImpl());
+		}
+	}
+
+	/**
+	 * 安装网络请求平台支持
+	 */
+	installNetImpl() {
+		const encryptConfig = {
+			openBSL: false,
+			encrypt: true,
+			keyType: 1,
+		};
+		// 当前所属环境 默认webview
+		if (process.env.CURRENT_ENV === "weboa") {
+			encryptConfig.openBSL = false;
+			encryptConfig.encrypt = false;
+			NetAdapter.setEncryptConfig(encryptConfig);
+			return;
+		}
+		// web 版本不需要bsl
+		if (browserType === BROWSER_TYPE.WEB) {
+			encryptConfig.openBSL = false;
+			encryptConfig.encrypt = false;
+		}
+		NetAdapter.setEncryptConfig(encryptConfig);
+		// 安装mPaaS 的NetApi
+		if (browserType === BROWSER_TYPE.MPASS) {
+			NetAdapter.setNetImpl(new MPaaSNetImpl());
+		}
+	}
+	/**
+	 * @description: 安装通用配置
+	 * 项目不需要前置配置和第三方跳转的可以注释掉 installConfig内部代码
+	 * @param {*}
+	 */
+	installConfig() {
+		const commonConfig = require("./commonConfig").default;
+		return commonConfig
+			.initConfig(browserType)
+			.then(() => {
+				console.log(`Common_Config is loaded!`);
+			})
+			.catch((err) => {
+				console.log(`Common_Config is failed!`, err);
+			});
+	}
+}
+const platformSupport = new PlatformSupport();
+export default platformSupport;
+
+```
+
+
+
 
