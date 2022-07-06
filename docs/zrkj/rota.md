@@ -1,5 +1,7 @@
 # 花名册项目(文档输出)
 
+## 项目UE
+[薪e福-人事管理](http://pubweb.sino.sz/PRD/BizmateUE/temp/renshi/#g=1&p=%E5%91%98%E5%B7%A5%E6%A1%A3%E6%A1%88)
 ## 运行启动
 1. 花名册项目地址：[https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota](https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota)
 
@@ -128,7 +130,29 @@ sass_binary_site=http://10.0.5.26:8081/repository/sinosun-front-npm-raw-proxy/
 npm i vue-template-compiler@2.6.11 --save
 ```
 
-7. 运行成功
+7. 固定版本号(指定develop分支，暂不涉及)
+
+第一步：
+根据文档对应 tag，根据tag拉取 vue-fix 分支
+本地拉取对应分支代码 切换到vue-fix分支
+第二步：
+删除项目 node_modules 
+删除 package-lock.json
+第三步：
+修改 版本号  version 项目最新tag号上面加1  
+eg: 3.0.2 -> 3.0.3
+修改 package.json 中 vue版本 固定为2.6.12
+
+执行 npm i 安装
+安装完成之后 执行npm run build 打包 打包出来即可
+
+所有一切 做完之后 合并分支到 develop
+
+    vue-template-compiler 2.6.12
+    vue 2.6.12
+    vue-loader 15.9.5
+
+8. 运行成功
 ![rota运行成功界面](https://files.catbox.moe/y1zo7n.jpg)
 
 
@@ -655,8 +679,23 @@ platformSupport.installConfig();
 ### BaseView文件夹
 
 * baseApp.vue  组件依赖
+
+```
+<script lang="ts">
+import "sslib/setup";
+import BaseApp from "@sinosun/lib/lib/BaseView/baseApp";
+
+export default {
+    extends: BaseApp
+}
+</script>
+```
+
+https://cn.vuejs.org/v2/api/#extends
+
 * baseRouter.vue 路由页baseRouter组件依赖
 * baseScroll.vue (app页面滚动title栏变色基础依赖)
+
 
 
 ### 路由文件
@@ -666,6 +705,30 @@ vue项目优化之按需加载组件-使用webpack require.ensure与import
 :::
 
 ![webpack require.ensure项目优化](https://files.catbox.moe/fhqaiw.png)
+
+```
+const Employ = r => require.ensure([], () => r(require('@/views/employ/addEmploy/index')), 'employ');
+const EditEmploy = r => require.ensure([], () => r(require('@/views/employ/addEmploy/index')), 'employ');
+const Roster = r => require.ensure([], () => r(require('@/views/roster/index.vue')), 'roster');
+const RosterDetail = r => require.ensure([], () => r(require('@/views/roster/view/detail/index.vue')), 'roster');
+const PersonnelChangeDetail = r => require.ensure([], () => r(require('@/views/roster/view/personnelChangeDetail/index.vue')), 'roster');
+const  ImportStaffData= r => require.ensure([], () => r(require('@/views/roster/view/importStaffData/index.vue')), 'roster');
+```
+
+::: tip
+路由基础汇总与导出
+:::
+
+![路由基础汇总与导出](https://files.catbox.moe/ou8nun.png)
+
+![根据文件路径查找引入router.config的地方](https://files.catbox.moe/ai3i7m.png)
+
+![babelrc文件中](https://files.catbox.moe/694ydw.png)
+
+::: tip
+[@babel/plugin-syntax-dynamic-import的用法](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/)
+:::
+
 
 
 
