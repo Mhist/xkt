@@ -729,6 +729,30 @@ const  ImportStaffData= r => require.ensure([], () => r(require('@/views/roster/
 [@babel/plugin-syntax-dynamic-import的用法](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/)
 :::
 
+
+
+## 处理项目启动后进入默认路由的问题
+
+项目启动时，默认对应的端口号为8080 
+项目初始启动时，入口为
+```
+http://10.2.25.83:8080/pages/index.html#/roster
+```
+
+::: tip
+对于上图中同级的router.js文件如何保证：roster的优先级最高呢？
+
+```
+指定entry对象的index的键(属性)：对应的js文件即可，与文件是否命名为index无关。
+```
+![](https://files.catbox.moe/mbg5np.png)
+
+:::
+
+
+```
+http://10.2.25.83:8080/pages/index.html#/staff
+```
 ## service及views
 
 views-
@@ -739,6 +763,9 @@ inductionManager: 就职、入职
 laborContract: 劳动合同
 redeploy:调动
 roster: 花名册
+
+
+
 
 
 
