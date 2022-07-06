@@ -1,4 +1,4 @@
-# 花名册项目(文档输出)
+# rota人事管理项目(文档输出)
 
 ## 项目UE
 [薪e福-人事管理](http://pubweb.sino.sz/PRD/BizmateUE/temp/renshi/#g=1&p=%E5%91%98%E5%B7%A5%E6%A1%A3%E6%A1%88)
@@ -728,6 +728,21 @@ const  ImportStaffData= r => require.ensure([], () => r(require('@/views/roster/
 ::: tip
 [@babel/plugin-syntax-dynamic-import的用法](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/)
 :::
+
+## service及views
+
+views-
+dimission:离职
+employ：人事
+employmentmanager：人事管理
+inductionManager: 就职、入职
+laborContract: 劳动合同
+redeploy:调动
+roster: 花名册
+
+
+
+
 
 
 
