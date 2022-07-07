@@ -3,6 +3,12 @@
 ## 项目UE
 [薪e福-人事管理](http://pubweb.sino.sz/PRD/BizmateUE/temp/renshi/#g=1&p=%E5%91%98%E5%B7%A5%E6%A1%A3%E6%A1%88)
 
+## 思维导图嵌入
+
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:500px;" src="https://www.processon.com/embed/62c675f8f346fb075d399056"></iframe>
+
+[人事管理(薪e福)在线思维导图预览](https://www.processon.com/embed/62c675f8f346fb075d399056)
+
 
 [思维导图xmind格式-薪e福-人事管理](http://119.91.213.59:8888/down/QYQ61sAv0Xt7)
 
@@ -784,11 +790,13 @@ views-
 * redeploy:调动
 * roster: 花名册
 
-## 思维导图嵌入
 
-<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:525px; height:245px;" src="https://www.processon.com/embed/62c675f8f346fb075d399056"></iframe>
 
-[人事管理(薪e福)在线思维导图预览](https://www.processon.com/embed/62c675f8f346fb075d399056)
+
+
+
+
+
 
 
 
