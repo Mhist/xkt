@@ -2,6 +2,12 @@
 
 ## 项目UE
 [薪e福-人事管理](http://pubweb.sino.sz/PRD/BizmateUE/temp/renshi/#g=1&p=%E5%91%98%E5%B7%A5%E6%A1%A3%E6%A1%88)
+
+
+[思维导图xmind格式-薪e福-人事管理](http://119.91.213.59:8888/down/QYQ61sAv0Xt7)
+
+
+<embed src="http://119.91.213.59:8888/down/ydPI8EdJI3aF" type="image/svg+xml" />
 ## 运行启动
 1. 花名册项目地址：[https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota](https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota)
 
@@ -749,20 +755,32 @@ http://10.2.25.83:8080/pages/index.html#/roster
 
 :::
 
-
+[自定义staff-http://10.2.25.83:8080/pages/index.html#/staff](http://10.2.25.83:8080/pages/index.html#/staff)
 ```
-http://10.2.25.83:8080/pages/index.html#/staff
+
+
+
+let entrys = {
+    index:'@/views/staff/staff.js',
+    // index: '@/views/roster/index.js',
+    inductionManager: '@/views/inductionManager/inductionManager.js',
+    employmentmanager: '@/views/employmentmanager/employmentmanager.js',
+    dimissionIndex: '@/views/dimission/dimission.js',
+    redeployIndex: '@/views/redeploy/redeploy.js',
+    laborContractIndex: '@/views/laborContract/laborContract.js',
+};
+module.exports = entrys;
 ```
 ## service及views
 
 views-
-dimission:离职
-employ：人事
-employmentmanager：人事管理
-inductionManager: 就职、入职
-laborContract: 劳动合同
-redeploy:调动
-roster: 花名册
+* dimission:离职
+* employ：人事
+* employmentmanager：人事管理
+* inductionManager: 就职、入职
+* laborContract: 劳动合同
+* redeploy:调动
+* roster: 花名册
 
 
 
