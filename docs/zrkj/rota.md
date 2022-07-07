@@ -909,6 +909,49 @@ views-
 │        └─ view
 ```
 
+::: warning
+![](https://files.catbox.moe/yu6zlq.png)
+
+* 项目按照功能划分，文件夹为功能名，主要包括vue的基础模板形式，将scss文件提出到单独的scss文件，通过 ```<style src="./index.scss" lang="scss"></style>```形式引入。
+
+* 内部含有子级view时，按照嵌套形式，顶层view一般包括index.scss文件，xxx.js文件，xxx.vue文件，以及vuex，其中xxx.js文件功能是对整个功能文件进行整合。
+
+```
+import Vue from "vue";
+import App from "@/app.vue";
+import { RosterRouter } from "routerConfig";
+import Router from "vue-router";
+import "@/router/baseRouter.js";
+import "./index.scss";
+
+import store from "./store";
+console.log(`window.location.href_new Router ------>`, window.location.href);
+import ThemeLoader from "@/utils/themeLoader";
+
+const initVue = () => {
+	const router = new Router({ routes: RosterRouter });
+
+	const EventBus = new Vue();
+	// 混合全局控制 进行后退按钮控制 内部路由的事件监听必须放在created之后
+	Vue.mixin({
+		created() {
+			this.$EventBus = EventBus;
+		},
+	});
+
+	new Vue({
+		router,
+		store,
+		render: (h) => h(App),
+	}).$mount("#app");
+};
+
+ThemeLoader.load().then(() => {
+	// mPaaS 解决首页带参数跳转问题 需要在Router 实例化之前处理
+	initVue();
+});
+```
+:::
 
 
 
