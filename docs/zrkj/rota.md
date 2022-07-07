@@ -782,13 +782,133 @@ module.exports = entrys;
 ## service及views
 
 views-
-* dimission:离职
-* employ：人事
-* employmentmanager：人事管理
-* inductionManager: 就职、入职
-* laborContract: 劳动合同
-* redeploy:调动
-* roster: 花名册
+* roster: 员工档案（）
+* employ：员工档案(暂时没有使用，在webpack入口配置文件中未涉及)
+* inductionManager: 入职管理
+* employmentmanager：转正管理
+* redeploy:调动管理
+* dimission:离职管理
+* laborContract: 劳动合同管理
+
+路径：rota\src\views
+
+```
+ views
+│     ├─ dimission
+│     │  ├─ dimission.js
+│     │  ├─ dimission.vue
+│     │  ├─ index.html
+│     │  ├─ index.scss
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     └─ handleResignation
+│     │        ├─ handleResignation.vue
+│     │        └─ index.scss
+│     ├─ employ
+│     │  ├─ addEmploy
+│     │  │  ├─ index.scss
+│     │  │  └─ index.vue
+│     │  ├─ components
+│     │  │  ├─ SnContract
+│     │  │  │  └─ index.vue
+│     │  │  ├─ SnEducation
+│     │  │  │  └─ index.vue
+│     │  │  ├─ SnMaterial
+│     │  │  │  └─ index.vue
+│     │  │  ├─ SnMaterialDetail
+│     │  │  │  └─ index.vue
+│     │  │  └─ SnWorkExperience
+│     │  │     └─ index.vue
+│     │  └─ detailPage
+│     │     ├─ index.scss
+│     │     └─ index.vue
+│     ├─ employmentmanager
+│     │  ├─ employmentmanager.html
+│     │  ├─ employmentmanager.js
+│     │  ├─ employmentmanager.scss
+│     │  ├─ employmentmanager.vue
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     └─ handleformal
+│     │        ├─ index.scss
+│     │        └─ index.vue
+│     ├─ inductionManager
+│     │  ├─ inductionManager.html
+│     │  ├─ inductionManager.js
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     ├─ addInduction
+│     │     │  ├─ index.scss
+│     │     │  └─ index.vue
+│     │     ├─ inductionDetail
+│     │     │  ├─ index.scss
+│     │     │  └─ index.vue
+│     │     └─ inductionManager
+│     │        ├─ index.scss
+│     │        └─ index.vue
+│     ├─ laborContract
+│     │  ├─ index.html
+│     │  ├─ index.scss
+│     │  ├─ laborContract.js
+│     │  ├─ laborContract.vue
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     ├─ contractRenewal
+│     │     │  ├─ contractRenewal.vue
+│     │     │  └─ index.scss
+│     │     ├─ contractSigning
+│     │     │  ├─ contractSigning.vue
+│     │     │  └─ index.scss
+│     │     ├─ detail
+│     │     │  ├─ detail.vue
+│     │     │  └─ index.scss
+│     │     └─ importStaffData
+│     │        ├─ importStaffData.vue
+│     │        └─ index.scss
+│     ├─ redeploy
+│     │  ├─ index.html
+│     │  ├─ index.scss
+│     │  ├─ redeploy.js
+│     │  ├─ redeploy.vue
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     └─ handleRedeploy
+│     │        ├─ handleRedeploy.vue
+│     │        └─ index.scss
+│     ├─ roster
+│     │  ├─ index.html
+│     │  ├─ index.js
+│     │  ├─ index.scss
+│     │  ├─ index.vue
+│     │  ├─ store
+│     │  │  └─ index.js
+│     │  └─ view
+│     │     ├─ components
+│     │     │  └─ Steps.vue
+│     │     ├─ detail
+│     │     │  ├─ index.scss
+│     │     │  └─ index.vue
+│     │     ├─ importStaffData
+│     │     │  ├─ index.scss
+│     │     │  └─ index.vue
+│     │     └─ personnelChangeDetail
+│     │        ├─ index.scss
+│     │        └─ index.vue
+│     └─ staff
+│        ├─ index.html
+│        ├─ index.scss
+│        ├─ staff.js
+│        ├─ staff.vue
+│        ├─ store
+│        │  └─ index.js
+│        └─ view
+```
+
 
 
 
