@@ -13,9 +13,10 @@
 1. 花名册项目地址：[https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota](https://git.sinosun.com/product/bizmate/ace/frontend/h5/rota)
 
 2. 启动问题
+
 * git clone with ssh方式:[git@git.sinosun.com.cn:product/bizmate/ace/frontend/h5/rota.git](git@git.sinosun.com.cn:product/bizmate/ace/frontend/h5/rota.git)
 
-    需要添加ssh-keys: [配置流程](https://git.sinosun.com/help/ssh/README#generate-an-ssh-key-pair)
+* 需要添加ssh-keys: [配置流程](https://git.sinosun.com/help/ssh/README#generate-an-ssh-key-pair)
 
 
 3. 个人用户名及邮箱
