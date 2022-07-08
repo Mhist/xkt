@@ -1104,7 +1104,9 @@ export default new RosterApi();
 
 
 ::: TIP
+
 returnResData主要用于单独的功能demo中，
+
 ```
 const returnResData = data => {
 	return data;
@@ -1115,7 +1117,9 @@ const returnResData = data => {
 
 
 ::: TIP
+
 getSuccess主要用于返回包括状态码以及结果信息状态的功能，
+
 ```
 const getSuccess = (data = {}) => {  
     return {    
