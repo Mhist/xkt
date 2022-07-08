@@ -954,6 +954,131 @@ ThemeLoader.load().then(() => {
 :::
 
 
+## service接口相关
+
+| 基本流程      | 操作路径 |
+| :---        |    :----:   | 
+| 统一管理前缀      | /bankConfig/apiUrlConfig       | 
+| 统一管理url   | /service/ApiUrl.ts        |
+
+```
+│  ├─ service
+│  │  ├─ Api.ts                     基础api类封装，其他功能api通过class类语法继承与增强
+│  │  ├─ ApiUrl.ts                  统一管理url
+│  │  ├─ Common.ts                  // 获取企业最高管理员信息，文件上传
+│  │  ├─ CommonApi.ts               // 文件上传
+│  │  ├─ Contract.ts                // 劳动合同管理接口
+│  │  ├─ Dimission.ts
+│  │  ├─ Employmentmanager.ts
+│  │  ├─ InductionApi.ts
+│  │  ├─ netConfig.ts
+│  │  ├─ Redeploy.ts
+│  │  ├─ RosterApi.ts
+│  │  └─ userApi.ts
+```
+
+::: warning
+
+* 导出的时候通过new关键字导出一个 **new RosterApi**
+* 用ts文件书写
+
+```
+import Api from "./Api";
+import { ROSTER_API_URL,COMMON_API_URL } from "./ApiUrl";
+
+class RosterApi extends Api {
+	constructor() {
+		super();
+	}
+	//查询员工档案列表
+	searchEmployee(params: object) {
+		const url = ROSTER_API_URL.SEARCH_EMPLOYEE;
+		const errorMessage = `查询员工档案列表失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	// 新增员工档案
+	addEmployee(params: object) {
+		const url = ROSTER_API_URL.ADD_EMPLOYEE;
+		const errorMessage = `新增员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	// 批量预新增员工档案
+	batchAddEmployeePreCheck(params: object) {
+		const url = ROSTER_API_URL.BATCH_ADD_EMPLOYEE_PRECHECK;
+		const errorMessage = `批量预新增员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	// 批量新增员工档案
+	batchAddEmployee(params: object) {
+		const url = ROSTER_API_URL.BATCH_ADD_EMPLOYEE;
+		const errorMessage = `批量新增员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+
+	// 查询用户员工档案详情
+	queryEmployeeDetail(params: object) {
+		const url = ROSTER_API_URL.QUERY_EMPLOYEE_DETAIL;
+		const errorMessage = `查询用户详情失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+
+
+
+    //更新员工档案
+	updateEmployee(params: object) {
+		const url = ROSTER_API_URL.UPDATE_EMPLOYEE;
+		const errorMessage = `更新员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+    //搜索人事异动管理列表
+	searchChangesEmployee(params: object) {
+		const url = ROSTER_API_URL.SEARCH_CHANGES_EMPLOYEE;
+		const errorMessage = `搜索人事异动管理列表失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+    // 导出数据
+	exportEmployee(params: object) {
+		const url = ROSTER_API_URL.EXPORT_EMPLOYEE;
+		const errorMessage = `导出员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	// 导出数据，后端导出
+	exportEmployeeFile(params: object) {
+		const url = ROSTER_API_URL.EXPORT_EMPLOYEE_FILE;
+		const errorMessage = `导出员工档案失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	// 查询待入职详情
+	getWaitEntryInfo(params: object) {
+		const url = ROSTER_API_URL.QUERY_WAIT_ENTRY_INFO;
+		const errorMessage = `查询待入职详情失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+	// 查询基础数据
+	getDictData(params: object) {
+		const url = ROSTER_API_URL.GET_DICT_DATA;
+		const errorMessage = `查询基础数据失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+	// 部门查询
+	getDepartmentTree(params: object) {
+		const url = COMMON_API_URL.GET_DEPARTMENT_TREE;
+		const errorMessage = `查询基础数据失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+	// 岗位查询
+	listRole(params: object) {
+		const url = COMMON_API_URL.QUERY_LIST_ROLE;
+		const errorMessage = `查询基础数据失败`;
+		return this.dealResultPromise(url, params, `Get`, errorMessage);
+	}
+}
+
+export default new RosterApi();
+```
+
+:::
+
 
 
 
