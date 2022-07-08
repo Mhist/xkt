@@ -1102,8 +1102,8 @@ export default new RosterApi();
 │  └─ index.js                          主要函数：getSuccess
 ```
 
-::: returnResData
-主要用于单独的功能demo中，
+::: TIP
+returnResData主要用于单独的功能demo中，
 ```
 const returnResData = data => {
 	return data;
@@ -1113,8 +1113,8 @@ const returnResData = data => {
 :::
 
 
-::: getSuccess
-主要用于返回包括状态码以及结果信息状态的功能，
+::: TIP
+getSuccess主要用于返回包括状态码以及结果信息状态的功能，
 ```
 const getSuccess = (data = {}) => {  
     return {    
