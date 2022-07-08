@@ -1081,10 +1081,8 @@ export default new RosterApi();
 
 ## 模拟数据Mock.js
 
-| 基本流程      | 操作路径 |
-| :---：        |    :----:   | 
-| mock.js-github      | [https://github.com/nuysoft/Mock](https://github.com/nuysoft/Mock)       | 
-| mock.js中文文档   | [http://mockjs.com/](http://mockjs.com/)       |
+[https://github.com/nuysoft/Mock](https://github.com/nuysoft/Mock)  
+[http://mockjs.com/](http://mockjs.com/)
 
 项目文件路径：rota/mock
 
@@ -1102,9 +1100,7 @@ export default new RosterApi();
 │  └─ index.js                          主要函数：getSuccess
 ```
 
-
-::: TIP
-
+::: warning
 returnResData主要用于单独的功能demo中，
 
 ```
@@ -1116,7 +1112,7 @@ const returnResData = data => {
 :::
 
 
-::: TIP
+::: warning
 
 getSuccess主要用于返回包括状态码以及结果信息状态的功能，
 
