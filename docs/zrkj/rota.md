@@ -1079,7 +1079,53 @@ export default new RosterApi();
 
 :::
 
+## 模拟数据Mock.js
 
+| 基本流程      | 操作路径 |
+| :---：        |    :----:   | 
+| mock.js-github      | [https://github.com/nuysoft/Mock](https://github.com/nuysoft/Mock)       | 
+| mock.js中文文档   | [http://mockjs.com/](http://mockjs.com/)       |
+
+项目文件路径：rota/mock
+
+```
+├─ mock
+│  ├─ demoData                         功能demo-MOCK   主要函数：returnResData
+│  │  ├─ commonDemo.js
+│  │  ├─ contract.js
+│  │  ├─ dimission.js
+│  │  ├─ employmentmanager.js
+│  │  ├─ index.js
+│  │  ├─ inductionManager.js
+│  │  ├─ redeploy.js
+│  │  └─ roster.js
+│  └─ index.js                          主要函数：getSuccess
+```
+
+::: returnResData
+主要用于单独的功能demo中，
+```
+const returnResData = data => {
+	return data;
+};
+```
+
+:::
+
+
+::: getSuccess
+主要用于返回包括状态码以及结果信息状态的功能，
+```
+const getSuccess = (data = {}) => {  
+    return {    
+        resultCode: 0,    
+        resultMessage: "ok",    
+        result: data    
+    }    
+}
+```
+
+:::
 
 
 
