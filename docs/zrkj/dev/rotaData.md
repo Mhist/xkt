@@ -31,17 +31,17 @@
  - 公司内部规范指南：https://bizmatesit.sinosun.com:17380/bizmate/static/docs/platform/index.html#/./sinosun-ui/standard
  - css命名 ：[BFM命名](https://juejin.cn/post/6844903672162304013)
  - JS功能代码注释：
- - vscode代码片段：用户名，时间等信息
+ - vscode代码片段：用户名，时间等信息(文件头部注释举例如下)
    
-   ```  文件头部注释举例
-      /*
- * @Author       : licheng
- * @Description  : 
- * @Date         : 2021-06-09 14:52:23
- * @LastEditors  : licheng
- * @LastEditTime : 2021-06-16 23:25:51
- * @FilePath     : \payslipmgr\src\views\payslip\store\index.js
- */
-
-   ```
+   
+```  
+/*
+* @Author       : licheng
+* @Description  : 
+* @Date         : 2021-06-09 14:52:23
+* @LastEditors  : licheng
+* @LastEditTime : 2021-06-16 23:25:51
+* @FilePath     : \payslipmgr\src\views\payslip\store\index.js
+*/
+```
 
