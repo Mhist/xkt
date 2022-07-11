@@ -33,15 +33,15 @@
  - JS功能代码注释：
  - vscode代码片段：用户名，时间等信息(文件头部注释举例如下)
    
-   
-```  
-/*
-* @Author       : licheng
+
+::: warning
+
+/** @Author       : licheng
 * @Description  : 
 * @Date         : 2021-06-09 14:52:23
 * @LastEditors  : licheng
 * @LastEditTime : 2021-06-16 23:25:51
-* @FilePath     : \payslipmgr\src\views\payslip\store\index.js
-*/
-```
+* @FilePath     : \payslipmgr\src\views\payslip\store\index.js*/
+
+:::
 
