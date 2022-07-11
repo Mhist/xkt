@@ -697,3 +697,8 @@ export default {
 </script>
 
 ```
+
+
+## 自定义图标的使用
+
+![分析页感叹号 clamation-circle图标的使用流程](https://files.catbox.moe/hl8vzq.png)
