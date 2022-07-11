@@ -698,6 +698,82 @@ export default {
 
 ```
 
+::: warning
+
+echarts4.9.0使用整合版
+
+```
+<div class="chart-container" ref="chartContainer"></div>
+
+// 引入 ECharts 主模块
+import echarts from "echarts";
+
+echartsOption: {
+				color: [
+					color: [
+					getCssVarValue(`chart-color-1`),
+					getCssVarValue(`chart-color-2`)
+				],
+				],
+				/* 位置布局 */
+				grid: {
+					top: "0%",
+					left: "0%",
+					right: "0%",
+					bottom: "0%",
+					containLabel: true
+				},
+				series: [
+					{
+						type: "pie",
+						silent: true,
+						legendHoverLink: false,
+						hoverAnimation: false,
+						label: {
+							show: false
+						},
+						radius: ["90%", "100%"],
+						labelLine: {
+							show: false
+						},
+						data: []
+					}
+				]
+			}, // echarts的options数据
+
+
+
+methods:{
+	// 初始化charts
+		initEcharts() {
+			let circleChart = echarts.init(this.$refs.chartContainer);
+			this.setOption(circleChart);
+		},
+    // 设置chart数据
+		setOption(circleChart) {
+			if (circleChart) {
+				circleChart.setOption(this.echartsOption);
+			}
+		},
+}
+
+  mounted() {
+    this.$nextTick(() => {
+    
+		  this.initEcharts(); //初始化的时候去调初始化echarts的方法
+			
+    });
+  },
+
+
+
+```
+
+
+
+
+:::
+
 
 ## 自定义图标的使用
 
