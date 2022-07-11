@@ -3,6 +3,10 @@
 ## 项目UE
 [薪e福-人事管理](http://pubweb.sino.sz/PRD/BizmateUE/temp/renshi/#g=1&p=%E5%91%98%E5%B7%A5%E6%A1%A3%E6%A1%88)
 
+## 代码规范
+
+[代码规范](https://yadong.vercel.app/zrkj/dev/rotaData.html)
+
 ## 思维导图嵌入
 
 <iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:500px;" src="https://www.processon.com/embed/62c675f8f346fb075d399056"></iframe>
