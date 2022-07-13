@@ -5632,6 +5632,12 @@ class StatisticsApi extends Api {
 		const errorMessage = `查询在职员工年龄分布统计失败`;
 		return this.dealResultPromise(url, params, `Post`, errorMessage);
 	}
+		// 在职员工状态分布统计查询
+	onJobEmployeeDistributeStatistic(params: object) {
+		const url = STATISTICS_API_URL.ON_JOB_EMPLOYEE_DISTRIBUTE_STATISTIC;
+		const errorMessage = `查询在职员工状态分布统计失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
 	//在职员学历分布统计查询
 	onJobEmployeeEducationDistributeStatistic(params: object) {
 		const url = STATISTICS_API_URL.ON_JOB_EMPLOYEE_EDUCATION_DISTRIBUTE_STATISTIC;

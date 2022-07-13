@@ -12,7 +12,7 @@
 
 ## 本机 IP (用于开发 api 以及局域网演示)
 
-个人：<span style="color:red">192.168.0.113</span><br>
+个人：<span style="color:red">10.2.25.83</span><br>
 公司：<span style="color:red">待定......</span>
 
 ## 提高效率
