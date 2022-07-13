@@ -778,3 +778,70 @@ methods:{
 ## 自定义图标的使用
 
 ![分析页感叹号 clamation-circle图标的使用流程](https://files.catbox.moe/hl8vzq.png)
+
+## 多y轴
+
+[echarts官方-多y轴实例](https://echarts.apache.org/examples/zh/editor.html?c=multiple-y-axis)
+
+以待入职员工数为例：
+涉及待入职员工数，增长率，横轴的月份范围选择，共三个data数据项
+
+调用接口，传递月份，返回对应的数据整合成 与间隔月份相同+1的数据长度，
+
+2022/01 2022/07
+data1:[]
+data2:[]
+data3:[]
+
+
+颜色  [rgb转16进制](https://www.sioe.cn/yingyong/yanse-rgb-16/)
+#2fc25b   rgb(47,194,91)   绿色系
+#3ba1ff   rgb(59,161,255)  蓝色系
+
+待入职员工数   
+入职员工数
+在职员工数
+离职员工数
+正式员工数
+试用员工数
+
+最大日期当前年月
+
+https://blog.csdn.net/qq_40899182/article/details/90368911?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6-90368911-blog-118210870.pc_relevant_aa2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6-90368911-blog-118210870.pc_relevant_aa2&utm_relevant_index=10
+
+```
+  // 日期限制
+        disabledDate: (time) => {
+                        var date = new Date();
+                        var year = date.getFullYear();
+                        var month = date.getMonth() + 1;
+                        if (month >= 1 && month <= 9) {
+                            month = "0" + month;
+                        }
+                        var currentdate = year.toString()  + month.toString();
+ 
+                        var timeyear = time.getFullYear();
+                        var timemonth = time.getMonth() + 1;
+                        if (timemonth >= 1 && timemonth <= 9) {
+                            timemonth = "0" + timemonth;
+                        }
+                        var timedate = timeyear.toString() + timemonth.toString();
+                        return currentdate < timedate;
+                    }
+
+```
+
+```
+  // 日期限制
+        disabledDate: (time) => {
+          // 设置日期范围
+          var minDate = new Date(this.getDate(6));
+          var maxDate = new Date(this.getCurrentYearMonth());
+          var flag = false;
+          flag = time > maxDate || time < minDate;
+          return flag;
+        },
+
+```
+
+
