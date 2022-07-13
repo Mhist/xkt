@@ -5549,7 +5549,9 @@ definitions:
 
 ## API操作与验证
 
-### 文件路径：rota\bankConfig\apiUrlConfig.js
+### Api前缀配置
+
+文件路径：rota\bankConfig\apiUrlConfig.js
 
 ```
 /*
@@ -5571,7 +5573,9 @@ export const statisticsPrefix = `/${prefix}/statistics/v1`;
 
 ```
 
-### 文件路径：rota\src\service\ApiUrl.ts 
+### API-url配置
+
+文件路径：rota\src\service\ApiUrl.ts 
 
 [在线小写转大写工具：](https://www.bejson.com/convert/camel_underscore/)
 ```
@@ -5593,7 +5597,79 @@ export const STATISTICS_API_URL = {
 
 ```
 
-### 文件路径：rota\src\service\Statistics.ts
+### API函数定义
+
+文件路径：rota\src\service\StatisticsApi.ts
+
+```
+/**
+ * @author 江亚东
+ * 人事管理数据统计 Api接口调用层
+ */
+// 默认导入文件
+import Api from "./Api";
+import { STATISTICS_API_URL } from "./ApiUrl";
+
+class StatisticsApi extends Api {
+	constructor() {
+		super();
+	}
+	//员工异动统计查询
+	employeeChangeStatistic(params: object) {
+		const url = STATISTICS_API_URL.EMPLOYEE_CHANGE_STATISTIC;
+		const errorMessage = `查询员工异动统计失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	//员工数统计查询
+	employeeCountStatistic(params: object) {
+		const url = STATISTICS_API_URL.EMPLOYEE_COUNT_STATISTIC;
+		const errorMessage = `查询员工数统计失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	//在职员工年龄分布统计查询
+	onJobEmployeeAgeDistributeStatistic(params: object) {
+		const url = STATISTICS_API_URL.ON_JOB_EMPLOYEE_AGE_DISTRIBUTE_STATISTIC;
+		const errorMessage = `查询在职员工年龄分布统计失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+	//在职员学历分布统计查询
+	onJobEmployeeEducationDistributeStatistic(params: object) {
+		const url = STATISTICS_API_URL.ON_JOB_EMPLOYEE_EDUCATION_DISTRIBUTE_STATISTIC;
+		const errorMessage = `查询在职员学历分布统计失败`;
+		return this.dealResultPromise(url, params, `Post`, errorMessage);
+	}
+
+
+
+
+}
+
+export default new StatisticsApi();
+
+
+```
+
+### API页面引入与使用
+
+文件路径： rota\src\views\statisticicsApi.tss\statistics.vue
+
+```
+import StatisticsApi from "@/service/StatisticsApi";
+
+methods:{
+	// 调用 员工数统计查询接口 
+    getStaffNum() {
+        StatisticsApi.employeeCountStatistic(params).then((res) =>{
+          const { resultCode,result} = res
+          if(resultCode == 0) {
+              console.log("----------------员工数统计的接口",result)
+          }
+        });
+    },
+}
+
+
+```
 
 
 
