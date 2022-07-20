@@ -5677,6 +5677,137 @@ methods:{
 
 ```
 
+## 双Y轴(柱状图，折线图)配置项
+
+```
+ echartsOption: {
+        color: colors,
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "cross",
+          },
+          formatter: function (params) {
+            var relVal = params[0].name;
+
+            let marker = [
+              '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#2fc25b;"></span>',
+              '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#3ba1ff;"></span>',
+            ];
+            for (var i = 0; i < params.length; i++) {
+              if (params[i].seriesName === "员工数") {
+                relVal +=
+                  "<br/>" +
+                  marker[i] +
+                  params[i].seriesName +
+                  " : " +
+                  params[i].value +
+                  "人";
+              }
+              if (params[i].seriesName === "增长率") {
+                relVal +=
+                  "<br/>" +
+                  marker[i] +
+                  params[i].seriesName +
+                  " : " +
+                  params[i].value +
+                  "%";
+              }
+            }
+            return relVal;
+          },
+        },
+        grid: {
+          right: "20%",
+        },
+        toolbox: {
+          feature: {
+            // dataView: { show: true, readOnly: false },
+            // restore: { show: true },
+            // saveAsImage: { show: true }
+          },
+        },
+        // legend: {
+        //   data: ["员工数", "增长率"],
+        // },
+        xAxis: [
+          {
+            type: "category",
+            axisTick: {
+              alignWithLabel: true,
+            },
+            // prettier-ignore
+            data: ['2022/01', '2022/02', '2022/03', '2022/04', '2022/05', '2022/06', '2022/07', '2022/08', '2022/09', '2022/10', '2022/11', '2022/12'],
+          },
+        ],
+        yAxis: [
+          {
+            type: "value",
+            name: "增长率 (%)",
+            position: "right",
+            alignTicks: true,
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: colors[1],
+              },
+            },
+            axisLabel: {
+              formatter: "{value}",
+            },
+          },
+          {
+            type: "value",
+            name: "",
+            position: "right",
+            alignTicks: true,
+            offset: 80,
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: colors[0],
+              },
+            },
+            axisLabel: {
+              formatter: "{value}",
+            },
+          },
+          {
+            type: "value",
+            name: "员工数 (人)",
+            position: "left",
+            alignTicks: true,
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: colors[0],
+              },
+            },
+            axisLabel: {
+              formatter: "{value}",
+            },
+          },
+        ],
+        series: [
+          {
+            name: "增长率",
+            type: "bar",
+            data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20],
+          },
+          {
+            name: "员工数",
+            type: "line",
+            yAxisIndex: 2,
+            data: [240, 0, 100, 250, 350, 500, 400],
+          },
+         
+        ],
+      }, // echarts的options数据
+
+```
+
+## 
+
 
 
 
