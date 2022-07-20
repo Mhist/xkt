@@ -144,7 +144,7 @@ export default routes;
 
 *** 参考： notice公告的审批流程代码：
 
-发布按钮：
+从发布按钮：
 
 ::: warning
 
@@ -184,45 +184,6 @@ export default routes;
                     this.loading = false;
                 });
         },
-```
-:::
-
-
-子组件modal选择框逻辑
-
-::: warning
-
-```
-     async init(options = {}) {
-            const _options = {
-                isShow: false,
-                title: '',
-                content: '',
-                placeholder: '备注(选填)',
-                confirmButtonText: '提交申请',
-                isCancelBtn: true,
-                maxlength: 200,
-                confirm: () => {},
-                cancel: () => {},
-            };
-            // 查询业务是否设置了固定审批流程
-            var fixResObj = await window.ExternalApi.getFixFlowClassList('1027');
-            if (fixResObj) {
-                if (fixResObj.pid) {
-                    if (fixResObj?.currentUserInfo) {
-                        this.approver = fixResObj?.currentUserInfo;
-                        this.$emit('update:approver', this.approver);
-                    }
-                    this.pid = fixResObj.pid;
-                    this.$emit('update:pid', this.pid);
-                } else if (fixResObj.errorMsg) {
-                    this.errorMsg = fixResObj.errorMsg;
-                }
-            }
-            this.options = Object.assign({}, _options, options);
-        },
-
-
 
          //预存公告信息
         saveBisReviewInfo(item, remark = '', pid) {
@@ -319,5 +280,111 @@ export default routes;
             }, 1000);
         },
 ```
+:::
+
+
+子组件modal选择框逻辑
+
+::: warning
+
+```
+     async init(options = {}) {
+            const _options = {
+                isShow: false,
+                title: '',
+                content: '',
+                placeholder: '备注(选填)',
+                confirmButtonText: '提交申请',
+                isCancelBtn: true,
+                maxlength: 200,
+                confirm: () => {},
+                cancel: () => {},
+            };
+            // 查询业务是否设置了固定审批流程   
+            var fixResObj = await window.ExternalApi.getFixFlowClassList('1027');
+            if (fixResObj) {
+                if (fixResObj.pid) {
+                    if (fixResObj?.currentUserInfo) {
+                        this.approver = fixResObj?.currentUserInfo;
+                        this.$emit('update:approver', this.approver);
+                    }
+                    this.pid = fixResObj.pid;
+                    this.$emit('update:pid', this.pid);
+                } else if (fixResObj.errorMsg) {
+                    this.errorMsg = fixResObj.errorMsg;
+                }
+            }
+            this.options = Object.assign({}, _options, options);
+        },
+
+```
 
 :::
+
+
+父组件涉及的API: 
+
+1.  noticeApi.saveBisReviewInfo(json)    // 配置json文件,其中参数为：
+    
+    ```
+           let contentJson = {
+                announcementTitle: that.localPubJson.title,
+                announcementRange: that.localPubJson.annPubScopeName,
+                announcementDetail: {
+                    label: '公告详情',
+                    url: `${
+                        window.COMPLETE_URL || ''
+                    }/bizmate/static/notice/pages/index.html#/noticedetail?isApply=true&annId=${
+                        item.annIdList[0]
+                    }&annPubScopeArr=${that.localPubJson.annPubScopeName}`,
+                },
+                remark,
+            };
+
+
+            let  json = {
+                needApprovalInfo: {
+                    needApprovalBisInfo: JSON.stringify(contentJson),
+                },  
+                needExecuteBisData: JSON.stringify({
+                    execMethod: 'notice.addPublish',
+                    execReqParam: item,
+                }),
+            };
+
+
+    ```
+2. window.ExternalApi.apply(params)      // 调用审批api
+
+    ```
+         const params = {
+                content: item,
+                summary: {
+                    listData: {
+                        公告标题: announcementTitle,
+                        发布范围: announcementRange,
+                    },
+                },
+                templateType: 1027,
+                commitTo: this.approver,
+                pid,
+            };
+
+    ```
+
+3.  noticeApi.addPublish(publishParam)   // 发布公告
+
+    ```
+    let publishParam = {
+                    annIdList: [annId],
+                    companyId: this.userInfo.cpyId,
+                    operSource: 2,
+                    channelId: this.channelId,
+                    rangeList: this.rangeList,
+                };
+    ```
+
+子组件涉及的API: 
+
+1. window.ExternalApi.getFixFlowClassList('1027')  // 参数为父组件审批Api 中的参数键值对：  templateType: 1027,
+
