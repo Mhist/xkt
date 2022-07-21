@@ -388,3 +388,5 @@ export default routes;
 
 1. window.ExternalApi.getFixFlowClassList('1027')  // 参数为父组件审批Api 中的参数键值对：  templateType: 1027,
 
+
+![二期需求理解](https://files.catbox.moe/uv4o68.png)
