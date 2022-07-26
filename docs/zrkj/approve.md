@@ -1,6 +1,5 @@
 # 二期需求
 
-
 ## sp5提测计划
 
 提测计划：
@@ -8,8 +7,8 @@
 7.29 周五 提测sit
 8.10 周三 发布生产
 
-
 ## sp4提测计划(时间更新，按照sp5需求)
+
 ![二期需求提测计划](https://files.catbox.moe/b471jq.jpg)
 
 1. 设置人事各业务开启复核
@@ -289,8 +288,8 @@ export default routes;
             }, 1000);
         },
 ```
-:::
 
+:::
 
 子组件modal选择框逻辑
 
@@ -330,12 +329,13 @@ export default routes;
 
 :::
 
-
 父组件涉及的API: 
 
 1.  noticeApi.saveBisReviewInfo(json)    // 配置json文件,其中参数为：
     
-    ```
+    
+
+```
            let contentJson = {
                 announcementTitle: that.localPubJson.title,
                 announcementRange: that.localPubJson.annPubScopeName,
@@ -350,7 +350,6 @@ export default routes;
                 remark,
             };
 
-
             let  json = {
                 needApprovalInfo: {
                     needApprovalBisInfo: JSON.stringify(contentJson),
@@ -361,11 +360,12 @@ export default routes;
                 }),
             };
 
-
     ```
+
 2. window.ExternalApi.apply(params)      // 调用审批api
+    
 
-    ```
+```
          const params = {
                 content: item,
                 summary: {
@@ -382,8 +382,9 @@ export default routes;
     ```
 
 3.  noticeApi.addPublish(publishParam)   // 发布公告
+    
 
-    ```
+```
     let publishParam = {
                     annIdList: [annId],
                     companyId: this.userInfo.cpyId,
@@ -397,11 +398,7 @@ export default routes;
 
 1. window.ExternalApi.getFixFlowClassList('1027')  // 参数为父组件审批Api 中的参数键值对：  templateType: 1027,
 
-
 ![二期需求理解](https://files.catbox.moe/uv4o68.png)
-
-
-
 
 ## ue需求评审会待总结
 
@@ -409,24 +406,19 @@ export default routes;
 
 开启后，提交表单默认走自由审批流程（有弹窗，需要选择审批人的流程）
 
-
 自由流程不用卡权限   ？？？  不太理解
 
 根据业务类型，（右侧弹窗，选择业务申请，入职管理等字样），审批模板（getTemplateInfo???）
 
-
-summary:摘要，可以填一些内容，空也无影响
+summary: 摘要，可以填一些内容，空也无影响
 
 有权限的人才能看到 入转调离？  是table页面还是审批按钮开关界面？
 
-
 ## 前后端对接小会待总结
-
 
 不合理的讨论：开关是否开启的依据
 formytpe：      不合理
 服务名_接口名：  有些共用了同样的服务名_接口名，在新需求情况下，无法区分
-
 
 人事管理审批：开关界面，
 接口数量：2个
@@ -437,18 +429,116 @@ formytpe：      不合理
 
 会议中的   复合组件  名词  不太理解？？？
 
-
 ### 基本流程
 
-1.用户在入职管理，转正管理，调动管理，离职管理功能中，提交表单后
-2.检测对应的特定功能，例如入职管理的审批功能开关是否打开
-3.如果未打开，不走审批流程，如果打开，则调用预保存接口（文冬，冬胜）
-
-
+1. 用户在入职管理，转正管理，调动管理，离职管理功能中，提交表单后
+2. 检测对应的特定功能，例如入职管理的审批功能开关是否打开
+3. 如果未打开，不走审批流程，如果打开，则调用预保存接口（文冬，冬胜）
 
 ## 公告整体流程（串联）
 
 xmind文件：本地路径：'c:\Users\PC\Desktop\三方业务走审批流
 程(参照notice项目总结).xmind'
 
+## 接口
 
+1. 查询本企业下本服务模块功能操作开关状态。keyclock权限
+接口名：/getOptSwitch
+请求方式：get
+请求参数：
+        * companyId 企业Id
+        * moduledId 模块Id
+        * optIdentifier 功能操作唯一标识
+返回值：
+
+        
+
+```
+        {
+  "result": {
+    "detail": "string",
+    "groupId": 0,
+    "isReview": 0,
+    "optId": 0,
+    "optIdentifier": "string",
+    "optName": "string",
+    "sortOrder": 0
+  },
+  "resultCode": 0,
+  "resultMessage": "string"
+}
+        ```
+
+2. 查询本企业下本服务模块所有功能操作（带分组树和开关状态）
+接口名：/listModuleOperationSwitch
+请求方式：get
+请求参数：
+        * companyId 企业Id
+        * moduledId 模块Id
+返回值：
+
+        
+
+```
+       {
+  "result": {
+    "childModuleInfoList": [
+      null
+    ],
+    "groupId": 0,
+    "groupName": "string",
+    "operationSwitchInfoList": [
+      {
+        "detail": "string",
+        "groupId": 0,
+        "isReview": 0,
+        "optId": 0,
+        "optIdentifier": "string",
+        "optName": "string",
+        "sortOrder": 0
+      }
+    ],
+    "parentGroupId": 0,
+    "sortOrder": 0
+  },
+  "resultCode": 0,
+  "resultMessage": "string"
+}
+        ```   
+
+3. 批量编辑本服务模块功能操作项开关。keyclock权限
+接口名：/modifyModuleOperationSwitchs
+请求方式：post
+请求参数：
+        modifyModuleOperationSwitchsRequest:Object
+        ```
+
+        {
+
+  "companyId": "string", 
+  "modifyOperationSwitchList": [
+
+    {
+      "isReview": 0,
+      "optId": 0
+    }
+
+  ], 
+  "moduleId": 0, 
+  "userId": "string"
+}
+
+        
+
+```
+返回值：
+        ```
+
+       {
+
+  "result": {}, 
+  "resultCode": 0, 
+  "resultMessage": "string"
+}
+
+        ```   
