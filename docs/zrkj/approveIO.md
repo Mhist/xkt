@@ -1,12 +1,12 @@
 ## 接口
 
 1. 查询本企业下本服务模块功能操作开关状态。keyclock权限
-接口名：/getOptSwitch
-请求方式：get
-请求参数：
-        * companyId 企业Id
-        * moduledId 模块Id
-        * optIdentifier 功能操作唯一标识
+* 接口名：/getOptSwitch
+* 请求方式：get
+* 请求参数：
+  * companyId 企业Id
+  *  moduledId 模块Id
+  * optIdentifier 功能操作唯一标识
 ```
 返回值：
 {
@@ -26,11 +26,11 @@
 ```
 
 2. 查询本企业下本服务模块所有功能操作（带分组树和开关状态）
-接口名：/listModuleOperationSwitch
-请求方式：get
-请求参数：
-        * companyId 企业Id
-        * moduledId 模块Id
+* 接口名：/listModuleOperationSwitch
+* 请求方式：get
+* 请求参数：
+    * companyId 企业Id
+    * moduledId 模块Id
 
 ```
 返回值：
@@ -61,9 +61,9 @@
 ```   
 
 3. 批量编辑本服务模块功能操作项开关。keyclock权限
-接口名：/modifyModuleOperationSwitchs
-请求方式：post
-请求参数：modifyModuleOperationSwitchsRequest:Object
+* 接口名：/modifyModuleOperationSwitchs
+* 请求方式：post
+* 请求参数：modifyModuleOperationSwitchsRequest:Object
 ```
 请求参数：
     {
