@@ -97,7 +97,11 @@ reviewApply(execParams) {
 
 ![](https://files.catbox.moe/7ro0lc.png)
 
-在此处通过 F12控制台--location.href = "以下网址"
+在此处通过
+
+![](https://files.catbox.moe/5w8l8g.png)
+
+ F12控制台--location.href = "以下网址"
 [https://bizmatedev.sinosun.com:17280/bizmate/static/approval/approval/apply.html?templetType=1047&title=%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E7%94%B3%E8%AF%B7&appletUAId=268435457&ismain=1#/](https://bizmatedev.sinosun.com:17280/bizmate/static/approval/approval/apply.html?templetType=1047&title=%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E7%94%B3%E8%AF%B7&appletUAId=268435457&ismain=1#/)
 
 
@@ -113,6 +117,66 @@ https://bizmatedev.sinosun.com:17280/bizmate/static/approval/approval/apply.html
 ```
 
 ![](https://files.catbox.moe/753blx.jpg)
+
+
+## 填写基本的模板信息
+
+填写好必填项目后，
+![填写好必填项目](https://files.catbox.moe/zgz4eg.png)
+
+选择审批人，抄送人，
+![选择审批人弹窗](https://files.catbox.moe/2lkwdc.png)
+
+
+点击提交按钮，查看请求接口的参数（载荷）
+![提交后的载荷](https://files.catbox.moe/x0xcpd.png)
+
+
+此处content较长，先截取下来，每个模板对应的conent内容长度依照具体页面而定。
+
+
+
+```
+content: "{\"displayValue\":{\"handleFormalInductionDate\":\"2022/07/29\",\"handleFormalPero\":\"20220221月\",\"handleFormalDate\":\"2022/07/29\",\"handleFormalTrueDate\":\"2022/07/29\",\"applyUserName\":\"18827637106\",\"applyOgrName\":\"未分组\"},\"handleFormalName\":\"江测试\",\"handleFormalDepartment\":\"\",\"handleFormalPost\":\"\",\"handleFormalInductionDate\":1659024000,\"handleFormalPero\":\"20220221\",\"handleFormalDate\":1659024000,\"handleFormalTrueDate\":1659024000,\"handleFormalWorkMes\":\"\",\"handleFormaleValuate\":\"\",\"visibleValue\":{}}"
+
+```
+
+转义字符可以通过在线处理[https://www.toolscat.com/json/format](https://www.toolscat.com/json/format)
+
+```
+content: {
+    "displayValue": {
+        "handleFormalInductionDate": "2022/07/29",
+        "handleFormalPero": "20220221月",
+        "handleFormalDate": "2022/07/29",
+        "handleFormalTrueDate": "2022/07/29",
+        "applyUserName": "18827637106",
+        "applyOgrName": "未分组"
+    },
+    "handleFormalName": "江测试",
+    "handleFormalDepartment": "",
+    "handleFormalPost": "",
+    "handleFormalInductionDate": 1659024000,
+    "handleFormalPero": "20220221",
+    "handleFormalDate": 1659024000,
+    "handleFormalTrueDate": 1659024000,
+    "handleFormalWorkMes": "",
+    "handleFormaleValuate": "",
+    "visibleValue": {
+        
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
