@@ -11,7 +11,7 @@
 
 ![](https://files.catbox.moe/r640fo.png)
 
-# 需要走复核统一错误码 : 80102008（时间：2022-07-29 16：46）
+# 需要走复核统一错误码 : 80210043（时间：2022-07-29 16：46）
 
 ## 加逻辑分支
 
@@ -183,22 +183,9 @@ content: {
 
 ```
 content: "{\"displayValue\":{\"addRosterDate\":\"2022/07/29 周五\",\"applyUserName\":\"18827637106\",\"applyOgrName\":\"未分组\"},\"addRosterName\":\"江测试\",\"addRosterPhone\":\"18827637105\",\"addRosterCardType\":\"身份证\",\"addRosterIDcard\":\"422101199802212222\",\"addRosterDepartMent\":\"\",\"addRosterRole\":\"\",\"addRosterDate\":1659024000,\"visibleValue\":{}}"
-copyToNames: []
-copyToUaIds: []
-copyToUsers: []
-cpyTempletId: "338971632984064"
-flowId: null
-name: "18827637106的版本发布申请"
-nextApprovalName: "18827637106"
-nextUaId: "4462471054346@bizmatetest"
-pid: 0
-publicKeyId: "339120597884928"
-sign: "q-YAjCmp7wcykm9rGGqtNGz4940H2xTiYXoIMLMyvJxT2eOl9pZnJkhxAlgYIjNgsUDyUW68q7uTIRsyPNHbGA=="
+
 summary: "{\"listData\":{\"姓名\":\"江测试\",\"入职部门\":\"无\",\"入职岗位\":\"无\",\"预计入职日期\":\"2022/07/29 周五\"}}"
-templetType: 1046
-userId: "4462471054346@bizmatetest"
-userIdList: []
-userName: "18827637106"
+
 
 ```
 
@@ -221,22 +208,17 @@ content: {
     "visibleValue": {
         
     }
-}copyToNames: [
-    
-]copyToUaIds: [
-    
-]copyToUsers: [
-    
-]cpyTempletId: "338971632984064"flowId: nullname: "18827637106的版本发布申请"nextApprovalName: "18827637106"nextUaId: "4462471054346@bizmatetest"pid: 0publicKeyId: "339120597884928"sign: "q-YAjCmp7wcykm9rGGqtNGz4940H2xTiYXoIMLMyvJxT2eOl9pZnJkhxAlgYIjNgsUDyUW68q7uTIRsyPNHbGA=="summary: {
+}
+
+summary: {
     "listData": {
         "姓名": "江测试",
         "入职部门": "无",
         "入职岗位": "无",
         "预计入职日期": "2022/07/29 周五"
     }
-}templetType: 1046userId: "4462471054346@bizmatetest"userIdList: [
-    
-]userName: "18827637106"
+}
+
 
 ```
 
@@ -298,8 +280,11 @@ reviewApply(execParams) {
 :::
 
 
+## 请求载荷返回的content与参照代码的参数对比
 
+content展示的键值对的值，具体写参数的时候需要参照右侧的代码去代码逻辑里去找对应的字段
 
+![请求载荷与参数的问题](https://files.catbox.moe/3uoatp.png)
 
 
 
