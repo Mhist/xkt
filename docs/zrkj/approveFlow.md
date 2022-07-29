@@ -170,6 +170,136 @@ content: {
 
 
 
+##  参照新增待入职模板表单 走一遍流程
+
+![新增待入职模板表单](https://files.catbox.moe/mi6ndc.png)
+
+
+
+
+
+
+
+
+这一部分的content同样较长，先截取到这里
+
+```
+content: "{\"displayValue\":{\"addRosterDate\":\"2022/07/29 周五\",\"applyUserName\":\"18827637106\",\"applyOgrName\":\"未分组\"},\"addRosterName\":\"江测试\",\"addRosterPhone\":\"18827637105\",\"addRosterCardType\":\"身份证\",\"addRosterIDcard\":\"422101199802212222\",\"addRosterDepartMent\":\"\",\"addRosterRole\":\"\",\"addRosterDate\":1659024000,\"visibleValue\":{}}"
+copyToNames: []
+copyToUaIds: []
+copyToUsers: []
+cpyTempletId: "338971632984064"
+flowId: null
+name: "18827637106的版本发布申请"
+nextApprovalName: "18827637106"
+nextUaId: "4462471054346@bizmatetest"
+pid: 0
+publicKeyId: "339120597884928"
+sign: "q-YAjCmp7wcykm9rGGqtNGz4940H2xTiYXoIMLMyvJxT2eOl9pZnJkhxAlgYIjNgsUDyUW68q7uTIRsyPNHbGA=="
+summary: "{\"listData\":{\"姓名\":\"江测试\",\"入职部门\":\"无\",\"入职岗位\":\"无\",\"预计入职日期\":\"2022/07/29 周五\"}}"
+templetType: 1046
+userId: "4462471054346@bizmatetest"
+userIdList: []
+userName: "18827637106"
+
+```
+
+通过在线工具处理
+
+```
+content: {
+    "displayValue": {
+        "addRosterDate": "2022/07/29 周五",
+        "applyUserName": "18827637106",
+        "applyOgrName": "未分组"
+    },
+    "addRosterName": "江测试",
+    "addRosterPhone": "18827637105",
+    "addRosterCardType": "身份证",
+    "addRosterIDcard": "422101199802212222",
+    "addRosterDepartMent": "",
+    "addRosterRole": "",
+    "addRosterDate": 1659024000,
+    "visibleValue": {
+        
+    }
+}copyToNames: [
+    
+]copyToUaIds: [
+    
+]copyToUsers: [
+    
+]cpyTempletId: "338971632984064"flowId: nullname: "18827637106的版本发布申请"nextApprovalName: "18827637106"nextUaId: "4462471054346@bizmatetest"pid: 0publicKeyId: "339120597884928"sign: "q-YAjCmp7wcykm9rGGqtNGz4940H2xTiYXoIMLMyvJxT2eOl9pZnJkhxAlgYIjNgsUDyUW68q7uTIRsyPNHbGA=="summary: {
+    "listData": {
+        "姓名": "江测试",
+        "入职部门": "无",
+        "入职岗位": "无",
+        "预计入职日期": "2022/07/29 周五"
+    }
+}templetType: 1046userId: "4462471054346@bizmatetest"userIdList: [
+    
+]userName: "18827637106"
+
+```
+
+
+与前面提到的这一段代码进行对应
+
+
+:::warning
+
+```
+reviewApply(execParams) {
+			// 审批表单显示的content数据
+			let contentJson = {
+				"displayValue": {
+					"addRosterDate": dateFormat("YYYY/mm/dd", new Date(execParams.planInductionDate * 1000)),
+				},
+				"addRosterName": execParams.name,
+				"addRosterPhone": execParams.mobile,
+				"addRosterCardType": execParams.idType,
+				"addRosterIDcard": execParams.idNumber,
+				"addRosterDepartMent": execParams.departmentId,
+				"addRosterRole": execParams.postId,
+				"addRosterDate": execParams.planInductionDate,
+				"addRosterDetailUrl": "http://10.2.25.127:8080/pages/inductionManager.html#/inductionDetail",
+				"_execBisReviewInfoMethod":"/personelmgmt/v1/getBisReviewInfo",
+			}
+			let approvalBisData = execParams
+			let summary = {
+                    listData: {
+                        姓名: "张三十",
+                        手机号: "18694063736",
+                    },
+                };
+
+			let reviewApplyParam = {
+				execMethod: 'addWaitEmployee',
+				execReqParam: execParams,
+				approvalContent: contentJson,
+				approvalBisData: approvalBisData,
+				businessTitle: "新增待入职",
+				templateType : "1046",
+				summary: summary,
+				service: InductionApi,
+				callback: () => {
+									this.importDialog = {
+										isVisit: false,
+										buttonLoading: false,
+										isChecked: true
+									}
+								},
+			}
+
+			ReviewApplyPlugin.apply(reviewApplyParam);
+		},	
+
+
+```
+
+:::
+
+
 
 
 
