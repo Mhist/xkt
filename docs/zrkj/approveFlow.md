@@ -175,11 +175,9 @@ content: {
 ![新增待入职模板表单](https://files.catbox.moe/mi6ndc.png)
 
 
+提交表单后的返回内容：
 
-
-
-
-
+![新增待入职模板内容](https://files.catbox.moe/o5wifa.png)
 
 这一部分的content同样较长，先截取到这里
 
